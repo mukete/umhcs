@@ -48,8 +48,13 @@
         <div class="col-lg-2 col-md-2 col-sm-4">
           <div class="hs_social">
             <ul>
-              <li><a href="#">Login</a></li>
-              <li><a href="/provider/personal">Register</a></li>
+              @if(Auth::check())
+                <li><a href="{{URL::to('/')}}">Account</a></li>
+                <li><a href="{{URL::to('user/logout')}}">Logout</a></li>
+              @else
+                <li><a href="{{URL::to('user/login')}}">Login</a></li>
+                <li><a href="{{URL::to('user/register')}}">Register</a></li>
+              @endif
             </ul>
           </div>
           

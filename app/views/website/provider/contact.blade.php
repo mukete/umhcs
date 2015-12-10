@@ -22,9 +22,9 @@
       <p>
 
       <ul class="nav nav-pills nav-stacked"> 
-        <li role="presentation"><a href="#">Personal Information</a></li> 
-        <li role="presentation" class="follow-active"><a href="#">Contact Information</a></li> 
-        <li role="presentation" class="follow-dead"><a href="#">Professional Credentials</a></li> 
+        <li role="presentation"><a href="{{URL::to('provider/personal')}}">Personal Information</a></li> 
+        <li role="presentation" class="follow-active"><a href="{{URL::to('provider/contact')}}">Contact Information</a></li> 
+        <li role="presentation" class="follow-dead"><a href="">Professional Credentials</a></li> 
         <li role="presentation" class="follow-dead"><a href="#">Education Information</a></li>
         <li role="presentation" class="follow-dead"><a href="#">Term Agreement</a></li>
         <li role="presentation" class="follow-dead"><a href="#">Summary</a></li>
@@ -42,12 +42,11 @@
               <div class="form-group">
                 <label>Country of Origin</label>
                 <select name="country_origin" class='form-control input-sm'>
-                  <option value="Single">Single</option>
-                  <option value="Married">Married</option>
-                  <option value="Separated">Separated</option>
-                  <option value="Divorced">Divorced</option>
-                  <option value="Widowed">Widowed</option>
+                  @foreach($countries as $country)
+                  <option value="{{$country->id}}">{{$country->name}}</option>
+                  @endforeach
                 </select>
+                <span class="badge alert-danger">{{ ($errors->has('country_origin') ? $errors->first('country_origin') : '') }}</span>
               </div>
             </div>
 
@@ -55,14 +54,11 @@
               <div class="form-group">
                 <label>Nationality</label>
                 <select name="nationality" class='form-control input-sm'>
-                  <option value="1">American Indian or Alaska Native</option>
-                  <option value="2">Asian</option>
-                  <option value="3">Black or African American</option>
-                  <option value="4">Native Hawaiian or Other Pacific Islander</option>
-                  <option value="5">CaucasianHispanic or Latino</option>
-                  <option value="6">Hispanic or Latino</option>
-                  <option value="7">Not Hispanic of Latino</option>
+                  @foreach($countries as $country)
+                  <option value="{{$country->id}}">{{$country->name}}</option>
+                  @endforeach
                 </select>
+                <span class="badge alert-danger">{{ ($errors->has('nationality') ? $errors->first('nationality') : '') }}</span>
               </div>
             </div>
 
@@ -74,28 +70,32 @@
             <div class="col-md-3">
               <div class="form-group">
                 <label>Residence Address*</label>
-                <input type="text" class="form-control input-sm" name="residence_address" required>
+                <input type="text" class="form-control input-sm" name="residence_address" value="{{ Input::old('residence_address') != NULL ? Input::old('residence_address') : $physician->residence_address }}">
+                <span class="badge alert-danger">{{ ($errors->has('residence_address') ? $errors->first('residence_address') : '') }}</span>
               </div>
             </div>
 
             <div class="col-md-3">
               <div class="form-group">
                 <label>Residence Email*</label>
-                <input type="email" class="form-control input-sm" name="residence_email" required>
+                <input type="email" class="form-control input-sm" name="residence_email" value="{{ Input::old('residence_email') != NULL ? Input::old('residence_email') : $physician->residence_email }}">
+                <span class="badge alert-danger">{{ ($errors->has('residence_email') ? $errors->first('residence_email') : '') }}</span>
               </div>
             </div>
 
             <div class="col-md-3">
               <div class="form-group">
                 <label>Residence Phone*</label>
-                <input type="fax" class="form-control input-sm" name="residence_fax" required>
+                <input type="fax" class="form-control input-sm" name="residence_phone" value="{{ Input::old('residence_phone') != NULL ? Input::old('residence_phone') : $physician->residence_phone }}">
+                <span class="badge alert-danger">{{ ($errors->has('residence_phone') ? $errors->first('residence_phone') : '') }}</span>
               </div>
             </div>
 
             <div class="col-md-3">
               <div class="form-group">
                 <label>Residence Fax*</label>
-                <input type="email" class="form-control input-sm" name="residence_email" required>
+                <input type="text" class="form-control input-sm" name="residence_fax" value="{{ Input::old('residence_fax') != NULL ? Input::old('residence_fax') : $physician->residence_fax }}">
+                <span class="badge alert-danger">{{ ($errors->has('residence_fax') ? $errors->first('residence_fax') : '') }}</span>
               </div>
             </div>
 
@@ -105,14 +105,16 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>Skype ID</label>
-                <input type="text" class="form-control input-sm" name="skype">
+                <input type="text" class="form-control input-sm" name="skype" value="{{ Input::old('skype') != NULL ? Input::old('skype') : $physician->skype }}">
+                <span class="badge alert-danger">{{ ($errors->has('skype') ? $errors->first('skype') : '') }}</span>
               </div>
             </div>
 
             <div class="col-md-6">
               <div class="form-group">
                 <label>Facebook Account</label>
-                <input type="url" class="form-control input-sm" name="facebook">
+                <input type="url" class="form-control input-sm" name="facebook" value="{{ Input::old('facebook') != NULL ? Input::old('facebook') : $physician->facebook }}">
+                <span class="badge alert-danger">{{ ($errors->has('facebook') ? $errors->first('facebook') : '') }}</span>
               </div>
             </div>
           </div>
@@ -122,20 +124,20 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>Country to Serve</label>
-                <select name="marital_status" class='form-control input-sm'>
-                  <option value="Single">Single</option>
-                  <option value="Married">Married</option>
-                  <option value="Separated">Separated</option>
-                  <option value="Divorced">Divorced</option>
-                  <option value="Widowed">Widowed</option>
+                <select name="country_serve" class='form-control input-sm'>
+                  @foreach($countries as $country)
+                  <option value="{{$country->id}}">{{$country->name}}</option>
+                  @endforeach
                 </select>
+                <span class="badge alert-danger">{{ ($errors->has('country_serve') ? $errors->first('country_serve') : '') }}</span>
               </div>
             </div>
 
             <div class="col-md-6">
               <div class="form-group">
                 <label>Date &amp; Time to Contact</label>
-                <input type="text" name="contact_date" class="form-control form_datetime input-sm" required/>
+                <input type="text" name="contact_date" class="form-control form_datetime input-sm" value="{{ Input::old('contact_date') != NULL ? Input::old('contact_date') : $physician->contact_date }}">
+                <span class="badge alert-danger">{{ ($errors->has('contact_date') ? $errors->first('contact_date') : '') }}</span>
               </div>
             </div>
 

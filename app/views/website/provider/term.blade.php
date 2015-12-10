@@ -22,11 +22,11 @@
       <p>
 
       <ul class="nav nav-pills nav-stacked"> 
-        <li role="presentation"><a href="#">Personal Information</a></li> 
-        <li role="presentation"><a href="#">Contact Information</a></li> 
-        <li role="presentation"><a href="#">Professional Credentials</a></li> 
-        <li role="presentation"><a href="#">Education Information</a></li>
-        <li role="presentation" class="follow-active"><a href="#">Term Agreement</a></li>
+        <li role="presentation"><a href="{{URL::to('provider/')}}">Personal Information</a></li> 
+        <li role="presentation"><a href="{{URL::to('provider/')}}">Contact Information</a></li> 
+        <li role="presentation"><a href="{{URL::to('provider/')}}">Professional Credentials</a></li> 
+        <li role="presentation"><a href="{{URL::to('provider/')}}">Education Information</a></li>
+        <li role="presentation" class="follow-active"><a href="{{URL::to('provider/')}}">Term Agreement</a></li>
         <li role="presentation" class="follow-dead"><a href="#">Summary</a></li>
       </ul>
 

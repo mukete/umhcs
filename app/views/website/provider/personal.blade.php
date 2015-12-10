@@ -40,7 +40,8 @@
             <div class="col-md-4">
               <div class="form-group">
                 <label>First Name *</label>
-                <input type="text" class="form-control input-sm" name="first_name" >
+                <input type="text" class="form-control input-sm" name="first_name" value="{{ Input::old('first_name') != NULL ? Input::old('first_name') : Auth::user()->first_name }}" >
+                <span class="badge alert-danger">{{ ($errors->has('first_name') ? $errors->first('first_name') : '') }}</span>
               </div>
             </div>
 
@@ -54,7 +55,8 @@
             <div class="col-md-4">
               <div class="form-group">
                 <label>Last Name *</label>
-                <input type="text" class="form-control input-sm" name="last_name" >
+                <input type="text" class="form-control input-sm" name="last_name" value="{{ Input::old('last_name') != NULL ? Input::old('last_name') : Auth::user()->last_name }}" >
+                <span class="badge alert-danger">{{ ($errors->has('last_name') ? $errors->first('last_name') : '') }}</span>
               </div>
             </div>
           </div>
@@ -62,15 +64,17 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label>Date of Birth</label>
-                <input type="text" class="form-control input-sm" name="dob" >
+                <label>Date of Birth (DOB)</label>
+                <input type="date" class="form-control input-sm" name="dob" value="{{ Input::old('dob') != NULL ? Input::old('dob') : Auth::user()->dob }}">
+                <span class="badge alert-danger">{{ ($errors->has('dob') ? $errors->first('dob') : '') }}</span>
               </div>
             </div>
 
             <div class="col-md-6">
               <div class="form-group">
                 <label>Social Security Number (SSN)</label>
-                <input type="number" class="form-control input-sm" name="ssn">
+                <input type="number" class="form-control input-sm" name="ssn" value="{{ Input::old('ssn') != NULL ? Input::old('ssn') : Auth::user()->ssn }}">
+                <span class="badge alert-danger">{{ ($errors->has('ssn') ? $errors->first('ssn') : '') }}</span>
               </div>
             </div>
           </div>
@@ -80,11 +84,10 @@
               <div class="form-group">
                 <label>Gender</label>
                 <div class="row">
-
                   <div class="col-md-5 col-md-offset-1">
                     <div class="radio">
                       <label>
-                        <input type="radio" name="gender" value="M">
+                        <input type="radio" name="gender" value="M" {{ Auth::user()->gender == "M" ? 'checked' : ''}}>
                           Male
                       </label>
                     </div>
@@ -93,12 +96,12 @@
                   <div class="col-md-6">
                     <div class="radio">
                       <label>
-                        <input type="radio" name="gender" value="F">
+                        <input type="radio" name="gender" value="F"  {{ Auth::user()->gender == "F" ? 'checked' : ''}}>
                           Female
                       </label>
                     </div>
                   </div>
-                  
+                  <span class="badge alert-danger">{{ ($errors->has('gender') ? $errors->first('gender') : '') }}</span>
                 </div>
               </div>
             </div>
@@ -113,6 +116,7 @@
                   <option value="Divorced">Divorced</option>
                   <option value="Widowed">Widowed</option>
                 </select>
+                <span class="badge alert-danger">{{ ($errors->has('marital_status') ? $errors->first('marital_status') : '') }}</span>
               </div>
             </div>
 
@@ -120,14 +124,11 @@
               <div class="form-group">
                 <label>Race</label>
                 <select name="race" class='form-control input-sm'>
-                  <option value="1">American Indian or Alaska Native</option>
-                  <option value="2">Asian</option>
-                  <option value="3">Black or African American</option>
-                  <option value="4">Native Hawaiian or Other Pacific Islander</option>
-                  <option value="5">CaucasianHispanic or Latino</option>
-                  <option value="6">Hispanic or Latino</option>
-                  <option value="7">Not Hispanic of Latino</option>
+                  @foreach($races as $race)
+                    <option value="{{$race->id}}">{{$race->name}}</option>
+                  @endforeach
                 </select>
+                <span class="badge alert-danger">{{ ($errors->has('race') ? $errors->first('race') : '') }}</span>
               </div>
             </div>
 

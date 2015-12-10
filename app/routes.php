@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 Route::controller('provider', 'ProviderController');
 Route::controller('user', 'UserController');
+Route::controller('physician', 'PhysicianController');
