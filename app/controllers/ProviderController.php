@@ -7,6 +7,12 @@
  */
 class ProviderController extends BaseController
 {
+    public function __construct()
+    {
+        // check if user is logged in, else send to login page
+        $this->beforeFilter('auth');
+    }
+
     public function getPersonal()
     {
         $data['races'] = Race::all();
