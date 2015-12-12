@@ -13,9 +13,10 @@
 <!--Google web fonts-->
 <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 <!-- main css -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="{{URL::to('/')}}/css/main.css" media="screen"/>
 <link rel="stylesheet" href="{{URL::to('/')}}/css/bootstrap-datetimepicker.min.css" media="screen"/>
-<link rel="stylesheet" id="theme-color" type="text/css" href="#"/>
+
 
 <!--page title-->
 <title>UMHCS @section('title')@show</title>
@@ -23,15 +24,64 @@
 <body> 
  
 <!--header start-->
+<nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#"><i class="fa fa-facebook-official"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Language <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">English</a></li>
+                <li><a href="#">Francais</a></li>
+              </ul>
+            </li>
+            <li><a href="">Hospital Timings</a></li>
+            <li><a href="">Appointments</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+<div class="container first-head">
+  <div class="row">
+      <div class="col-md-4">
+          <a href=""> <img src="{{URL::to('/')}}/images/logo_.png" alt="" width="125"> </a>
+      </div>
+
+      <div class="col-md-3">
+        
+      </div>
+
+      <div class="col-md-3">
+       
+      </div>
+
+      <div class="col-md-3">
+        
+      </div>
+  </div>
+</div>
+
+
 <header id="hs_header">
   <div class="container">
+    
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 clearfix">
-        <div class="col-lg-2 col-md-2 col-sm-12">
-          <div id="hs_logo" > <a href=""> <img src="{{URL::to('/')}}/images/logo.png" alt=""> </a> </div>
-          <!-- #logo --> 
-        </div>
-        <div class="col-lg-8 col-md-8 col-sm-12">
+        <div class="col-lg-10 col-md-10 col-sm-12">
           <button type="button" class="hs_nav_toggle navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Menu<i class="fa fa-bars"></i></button>
           <nav>
             <ul class="hs_menu collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -78,12 +128,12 @@
   <div class="container">
     <div class="hs_footer_content">
       <div class="row">
-        <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="row">
             <div class="hs_footer_about_us">
               <div class="col-lg-3 col-md-4 col-sm-12 col-md-12 col-sm-12">
                 <h4 class="hs_heading">About Us</h4>
-                <a href="index-2.html"><img src="images/logo.png" alt="logo" width="180" height="41" /></a> </div>
+                <a href="index-2.html"><img src="images/logo_.png" alt="logo" width="100" /></a> </div>
               <div class="col-lg-9 col-md-8 col-sm-12 hs_about_us">
                 <div class="hs_margin_60"></div>
                 <p>Aenean facilisis sodales est neciMorbi vitapurus on Est facilisisro convallis commodo velante, tiam ltricies lputate.Aenean facilisis sodales est neciMorbi vitapurus on Est facilisisro convallis commodo velante, tiam ltricies lputate. </p>
@@ -93,10 +143,13 @@
           <div class="row">
             <div class="col-lg-4 col-md-3 col-sm-12">
               <h4 class="hs_heading">Get in touch !</h4>
-              <div class="hs_contact_detail">
-                <p><i class="fa fa-map-marker"></i> 13/2 Elizabeth Street Melbourne VIC 3000, Australia</p>
-                <p><i class="fa fa-mobile-phone"></i> +61 3 8376 6284</p>
-                <div class="clearfix"></div>
+              <div class="">
+                <p><i class="fa fa-map-marker"></i> 9029 Liberty rd., #C, Randallstown, MD 21133, USA </p>
+                <p>Phone : +1 (443) 272-6914</p>
+                <p>Phone :  +1 (443) 272-6938</p>
+                <p>Fax :  +1 (443) 405-3745</p>
+                <p>Email :  info@umhcs.com</p>
+                <p>Website : www.umhcs.com</p>
                 <div class="hs_social">
                   <ul>
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -112,50 +165,37 @@
               <div class="clearfix"></div>
               <div class="hs_footer_link">
                 <ul>
-                  <li><a href="services.html">Pediatric Clinic</a></li>
-                  <li><a href="services.html">Dental Clinic</a></li>
-                  <li><a href="services.html">General Surgery</a></li>
-                  <li><a href="services.html">Physiotherapy</a></li>
-                  <li><a href="services.html">Ltricies lputate</a></li>
+                  <li><a href="">Pediatric Clinic</a></li>
+                  <li><a href="">Become a Member</a></li>
+                  <li><a href="">Patient Benefits</a></li>
+                  <li><a href="">Emergency Room</a></li>
+                  <li><a href="">Informed Consent</a></li>
+                  <li><a href="">HIPAA</a></li>
                 </ul>
               </div>
               <div class="hs_footer_link">
                 <ul>
-                  <li><a href="blog-categories.html">Blog Categories</a></li>
-                  <li><a href="services-two-column.html">services Two Column</a></li>
-                  <li><a href="blog-single-post.html">Blog Single Post</a></li>
-                  <li><a href="services.html">services Three Column</a></li>
-                  <li><a href="blog-single-post-leftsidebar.html">Blog Leftsidebar</a></li>
+                  <li><a href="">Become a Provider</a></li>
+                  <li><a href="">Provider Benefits</a></li>
+                  <li><a href="">Provider Profiles</a></li>
                 </ul>
               </div>
               <div class="hs_footer_link">
                 <ul>
-                  <li><a href="blog-single-post-rightsidebar.html">Blog Rightsidebar</a></li>
-                  <li><a href="typography.html">Typography</a></li>
-                  <li><a href="elements.html">Elements</a></li>
-                  <li><a href="columns.html">columns</a></li>
-                  <li><a href="icon.html">icon</a></li>
+                  <li><a href="">Terms of Use</a></li>
+                  <li><a href="">Privacy Policy</a></li>
+                  <li><a href="">User Agreement</a></li>
+                  <li><a href="">Disclaimer</a></li>
                 </ul>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4">
-          <h4 class="hs_heading">Twitter Widget</h4>
-          <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 hs_twitter_widget">
-              <ul>
-                <li> <i class="fa fa-twitter"></i> <a href="#">
-                  <p>@healthcare...  Suspende potenti. Etiam ullamcorper scelerisque bibendumonec cursus,  eleifend semper. <br>
-                    <br>
-                    <strong>17 hours ago</strong> </p>
-                  </a> </li>
-                <li> <i class="fa fa-twitter"></i> <a href="#">
-                  <p>@Hsoftindia...  Suspende potenti. Etiam ullamcorper scelerisque bibendumonec cursus,  eleifend semper. <br>
-                    <br>
-                    <strong>2 min ago</strong> </p>
-                  </a> </li>
-              </ul>
+              <div class="hs_footer_link">
+                <ul>
+                  <li><a href="">About Us</a></li>
+                  <li><a href="">Frequesntly Asked Questions</a></li>
+                  <li><a href="">Contact Us</a></li>
+                  <li><a href="">Investors</a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -163,7 +203,7 @@
     </div>
   </div>
 </footer>
-<div class="hs_copyright"> Copyright © 2014 healthcare HTML Template All Rights Reserved </div>
+<div class="hs_copyright"> Copyright © 2015 UMHCS. All Rights Reserved </div>
 <!--main js file start--> 
 <script type="text/javascript" src="{{URL::to('/')}}/js/jquery-1.11.0.min.js"></script> 
 <script type="text/javascript" src="{{URL::to('/')}}/js/bootstrap.js"></script> 
@@ -189,6 +229,56 @@
         format: 'yyyy-mm-dd hh:ii'
     });
 </script>
+
+<script type="text/javascript">
+            $(document).ready(function() {
+
+                $("[rel='tooltip']").tooltip();
+
+                $('#hover-cap-4col .thumbnail').hover(
+
+                function() {
+                    $(this).find('.caption').slideDown(250);
+                    $('.caption-btm').hide();
+                },
+
+                function() {
+                    $(this).find('.caption').slideUp(250);
+                    $('.caption-btm').show();
+                });
+
+                $('#hover-cap-3col .thumbnail').hover(
+
+                function() {
+                    $(this).find('.caption').fadeIn(250);
+                },
+
+                function() {
+                    $(this).find('.caption').fadeOut(250);
+                });
+
+                $('#hover-cap-unique .thumbnail').hover(
+
+                function() {
+                    $(this).find('.caption').slideDown(500);
+                },
+
+                function() {
+                    $(this).find('.caption').slideUp(500);
+                });
+
+                $('#hover-cap-6col .thumbnail').hover(
+
+                function() {
+                    $(this).find('.caption').show();
+                },
+
+                function() {
+                    $(this).find('.caption').hide();
+                });
+
+            });
+        </script>
 
 <!--main js file end-->
 </body>
